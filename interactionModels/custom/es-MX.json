@@ -1,0 +1,117 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "numUno",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.466498424385.293575999777.1385023249469",
+                  "value": "1"
+                },
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.466498424385.293575999777.743166381967",
+                  "value": "10"
+                }
+              ],
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.466498424385.293575999777"
+              }
+            }
+          ],
+          "name": "AdivinaNumIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "numUno",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "es el {numUno}",
+                "es {numUno}",
+                "{numUno}"
+              ]
+            }
+          ],
+          "name": "AdivinaNumIntent",
+          "samples": [
+            "Quiero adivinar el numero",
+            "mi numero es {numUno}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "numeroGenerarIntent",
+          "samples": [
+            "computadora genera un numero"
+          ]
+        }
+      ],
+      "types": [],
+      "invocationName": "adivina numero"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Entiendo, ahora dime tu numero"
+          },
+          {
+            "type": "PlainText",
+            "value": "Vale, ahora intenta adivinar el numero diciendome el tuyo"
+          }
+        ],
+        "id": "Elicit.Slot.466498424385.293575999777"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Ingresa un valor mayor a uno, el rango de adivinacion es entre el uno y el diez"
+          }
+        ],
+        "id": "Slot.Validation.466498424385.293575999777.1385023249469"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Ingresa un valor menor a diez, el rango de adivinacion es entre el uno y el diez"
+          }
+        ],
+        "id": "Slot.Validation.466498424385.293575999777.743166381967"
+      }
+    ]
+  }
+}
